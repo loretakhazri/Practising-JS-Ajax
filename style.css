@@ -1,0 +1,16 @@
+body {
+    background-color:#b2d8d8;
+    color:#004c4c;
+}
+h1 {
+	text-align: center;
+}
+#btn {
+	padding: 5px 30px;
+	display:block;
+	background-color: #004c4c;
+	color:	#b2d8d8;
+}
+.image{
+	display:none;
+}
