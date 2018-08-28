@@ -7,16 +7,17 @@ $password = "";
 
 //-- Making query for getting first 3 rows from users table
 $pdo = new PDO ("mysql:host=$servername;dbname=test", $username, $password);
-$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit 3");
+$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3");//Changed this line
 $query->execute(array());
 $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 
 $table_data = " ";
-$last_id = 0;
+$offset = 0; //new changes
+$limit = 3; //new changes
 
 foreach ($rows as $row){
   $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
-  $last_id++;// After loop we will know that the last_id = 2, it will be necessary to know it for loading for data from users table to not loop from the beginning but from that row where loop stopped
+  $offset += $limit; //new changes
 }
 ?>
 
@@ -133,7 +134,7 @@ foreach ($rows as $row){
           $.ajax({
             url: 'table.php',
             type: 'get',
-            data:{last_id:<?=$last_id;?>},// Where we get last_id in this row from? This one (<?=$last_id;?>) we should write to pass to the GET in order to get number, true? 
+            data:{offset:<?=$offset;?>},//Changed this line
             success: function(r){
               $('#la').remove();
               $('#loading').remove();
