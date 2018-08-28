@@ -1,16 +1,28 @@
 body {
-    background-color:#b2d8d8;
-    color:#004c4c;
+    background-color:#E8E8E8;
+    color: #333333;
 }
 h1 {
 	text-align: center;
 }
 #btn {
-	padding: 5px 30px;
+	padding: 6px 15px;
+	margin-right:8px;
 	display:block;
-	background-color: #004c4c;
-	color:	#b2d8d8;
+	background-color: #e8e8e8;
+	color:	#333333;
 }
 .image{
 	display:none;
+}
+#nav {
+	text-align:center;
+	background-color: #990100 !important;
+	color:#333333 !important;
+}
+
+table {
+	width:100px;
+	align-content: center;
+	border: 1px solid #004c4c;
 }
