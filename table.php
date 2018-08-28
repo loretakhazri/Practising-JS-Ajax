@@ -8,11 +8,11 @@ $username = "";
 $password = "";
 
 
-$last_id = $_GET['last_id'];
+$offset = $_GET['offset']; //Changed this line
 $table_data .= "";
 
 $pdo = new PDO ("mysql:host=$servername;dbname=test", $username, $password);
-$query = $pdo->prepare("SELECT * FROM users WHERE id > $last_id");
+$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3");//Changed this line
 $query->execute();
 $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 
