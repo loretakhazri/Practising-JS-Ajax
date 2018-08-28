@@ -7,17 +7,29 @@ $password = "";
 
 //-- Making query for getting first 3 rows from users table
 $pdo = new PDO ("mysql:host=$servername;dbname=test", $username, $password);
+<<<<<<< HEAD
 $query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3");
+=======
+$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit 3");
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
 $query->execute(array());
 $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 
 $table_data = " ";
+<<<<<<< HEAD
 $offset = 0;
 $limit = 3;
 
 foreach ($rows as $row){
   $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
   $offset += $limit;// After loop we will know that the last_id = 2, it will be necessary to know it for loading for data from users table to not loop from the beginning but from that row where loop stopped
+=======
+$last_id = 0;
+
+foreach ($rows as $row){
+  $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
+  $last_id++;// After loop we will know that the last_id = 2, it will be necessary to know it for loading for data from users table to not loop from the beginning but from that row where loop stopped
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
 }
 ?>
 
@@ -28,8 +40,39 @@ foreach ($rows as $row){
 </head>
 <body>
   <h1>Testing my skills</h1>
+<<<<<<< HEAD
 
  <!-- <div class="div">
+=======
+  <div class="div">
+    <button class="toggle">Toggle</button>
+    <img class="image" src="img.jpeg">
+  <div>
+
+  <div class="div">
+    <button id="btn" type="button" class="btn">Info</button>
+    <div id="modal1" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Subscribe</h5>
+            <button type="button" class="close btn-secondary" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Please subscribe here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div>
+
+  <div class="div">
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
     <h2>Converting temperature from Celsius To Farenheit</h2>
     <input type="text" name="temp"> C
     <p id="temperature"></p>
@@ -40,8 +83,14 @@ foreach ($rows as $row){
     <input type="text" name="word">
     <div id="translation"></div>
   </div>
+<<<<<<< HEAD
 -->
 
+=======
+
+  <div class="div">
+    <button id="toggle-nav" class="btn btn-warning">Navbar</button>
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
     <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -66,6 +115,7 @@ foreach ($rows as $row){
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+<<<<<<< HEAD
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <button id="btn" type="button" class="btn">Subscribe</button>
@@ -87,11 +137,22 @@ foreach ($rows as $row){
                     </div>
                   </div>
                 </div>
+=======
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
+<<<<<<< HEAD
+=======
+  </div>
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
 
 <h2>Users table</h2>
 <table>
@@ -122,7 +183,11 @@ foreach ($rows as $row){
           $.ajax({
             url: 'table.php',
             type: 'get',
+<<<<<<< HEAD
             data:{offset:<?=$offset;?>},// Where we get last_id in this row from? This one (<?=$last_id;?>) we should write to pass to the GET in order to get number, true? 
+=======
+            data:{last_id:<?=$last_id;?>},// Where we get last_id in this row from? This one (<?=$last_id;?>) we should write to pass to the GET in order to get number, true? 
+>>>>>>> 5f702099a1e22a25920aa9e404812f6fb026b897
             success: function(r){
               $('#la').remove();
               $('#loading').remove();
