@@ -11,13 +11,25 @@ $limit = 3;
 $offset = 0;
 
 $query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3 ");
+=======
+$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3");//Changed this line
+>>>>>>> 807f9649b746dbff0142a9498b18a27f3dded671
 $query->execute(array());
 $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 
 $table_data = " ";
 
+
 foreach ($rows as $row){
   $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
+=======
+$offset = 0; //new changes
+$limit = 3; //new changes
+
+foreach ($rows as $row){
+  $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
+  $offset += $limit; //new changes
+>>>>>>> 807f9649b746dbff0142a9498b18a27f3dded671
 }
 $offset += $limit;
 ?>
@@ -195,7 +207,11 @@ $offset += $limit;
           $.ajax({
             url: 'table.php',
             type: 'get',
+
             data:{offset:<?=$offset;?>},
+=======
+            data:{offset:<?=$offset;?>},//Changed this line
+
             success: function(r){
 
               $('#la').remove();
