@@ -5,12 +5,24 @@ body {
 h1 {
 	text-align: center;
 }
+#h2 {
+	text-align:center;
+}
+#h3 {
+	text-align:center;
+	color:blue;
+}
+#h4 {
+	text-align:center;
+	color:green;
+}
 #btn {
 	padding: 6px 15px;
 	margin-right:8px;
 	display:block;
 	background-color: #e8e8e8;
 	color:	#333333;
+	border: 1px solid #333333;
 }
 .image{
 	display:none;
@@ -19,10 +31,29 @@ h1 {
 	text-align:center;
 	background-color: #990100 !important;
 	color:#333333 !important;
+	display:none;
 }
 
 table {
 	width:100px;
 	align-content: center;
 	border: 1px solid #004c4c;
+}
+.paragraphs {
+	padding-left:10px;
+}
+.p2 {
+	display:none;
+}
+#modal1 {
+	display: none;
+}
+.img {
+	display:none;
+}
+#card {
+	display:none;
+	position: absolute;
+    top: 61px;
+    right: 130px;
 }
