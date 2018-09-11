@@ -69,7 +69,7 @@ $( document ).ready(function() {
 //////////////////////////////////////////////////////
 //Random function
     function sum(a,b){
-        var c = a+b;
+        var c = a +b;
         return c;
     }
     sum(2,3);
@@ -241,23 +241,23 @@ $( document ).ready(function() {
 
 ////////////////////////////////////////////////////////////////////////
 //Writing random arrays
-var day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+/*var day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 console.log(day[4]);
 
 var buses = [53, '3g', 10];
-console.log("i like bus number " + buses[1]);
+    console.log("i like bus number " + buses[1]);
 //multidimensional arrays
-var random = [1, 2, "tree", [0, 2, 35]];
-console.log("my lucky number is " + random[3][2]);
+    var random = [1, 2, "tree", [0, 2, 35]];
+    console.log("my lucky number is " + random[3][2]);
 
 var multi = ['hello', 'myname', 12, 'you', "sunny day", ['i love you', 'you love me', 32], 'yes'];
 console.log(multi[0] + "I wanted to say that " + multi[5][0] + " and " +multi[6] + ', ' + multi[5][1]);
 ///Spliiting string to array with splitted substrings as array items
-var myData = 'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle';
-var myArray = myData.split(',');
-console.log("from string to array: " + myArray);
-console.log(myArray.length);
-console.log(myArray[3]);
+    var myData = 'Manchester,London,Liverpool,Birmingham,Leeds,Carlisle';
+    var myArray = myData.split(',');
+    console.log("from string to array: " + myArray);
+    console.log(myArray.length);
+    console.log(myArray[3]);
 
 var cities = 'Vilnius, Utena, Kaunas';
 var arrayOfCities = cities.split(',');
@@ -330,11 +330,81 @@ var phones = ['samsung', 'apple'];
 phones.push('huawei');
 console.log("Show all phones: " + phones);
 /////////////////////////////////////////////////////////
+//Add new element in the beginning of an array
+var dogs = ['Bo', 'Mo', 'Lo', 'To'];
+dogs.unshift('Jelly'); //if you print out this line, it will show the total number of elements in array with added items already
+console.log("Show me the new first element of an array " + dogs[0]);
+
+var animals = ['dogs', 'cats', 'mouses'];
+animals.unshift('parrots');
+animals.toString();
+console.log('Shoe all the animals: ' + animals);
 
 
+var paragraph = document.querySelector('.p1');
+var drinks = ['coffee', 'tea'];
+drinks.unshift('juice');
+drinks.toString();
+paragraph.append(' Would you like some drinks such as: ' + drinks + ' ? ');
 
+var numbers = [2,23,1,7,6];
+numbers.unshift(10);
+console.log("Show me all the numbers: " + numbers);
 
-   /* $('[name=temp]').keyup(function(){
+var autos = ['Honda', 'Toyota', 'Volvo'];
+autos.unshift('BMW');
+console.log('Show me my dream car - ' + autos[0]);
+
+var countries = ['Lithuania', 'Tunisia', 'Germany'];
+countries.unshift('Netherlands');
+console.log(countries);
+
+var currencies = ['Tunisian dinar', 'Euro', 'Pound'];
+currencies.unshift('American dollar');
+console.log(currencies[0]);
+
+var brands = ['Guci', 'Georgio Armani', 'MaxMara'];
+brands.unshift('Prada');
+console.log(brands[0]);
+
+var americanCities = ['New Yor', 'Los Angeles'];
+americanCities.unshift('San Francisco');
+console.log('Have you ever been to ' + americanCities[0]);
+
+var airports = ['Vilnius airport', 'Kaunas airport', 'Heathrow airport'];
+airports.unshift('Carthage airport');
+console.log('We will go to ' + airports[0]);
+//////////////////////////////////////////////////////////////////////////
+//Deleting first element of an array (shift() method) and last element(pop() method)
+
+var colors1 = ['red', 'blue', 'green','brown', 'orange'];
+var removedItemFromBeggining = colors1.shift();
+var removedItemFromEnd = colors1.pop();
+console.log('Removed from beginning: ' + removedItemFromBeggining + ' and removed from the end: ' + removedItemFromEnd);
+
+var books = ['Rugiuose prie bedugnes', 'Raudonkepuraite', 'Skrydis virs gegutes lizdo', 'Diena, kai pradejau gyventi', 'Dievas visada keliauja incognito'];
+var removedFirst = books.shift();
+var removedLast = books.pop();
+console.log('Removed first - ' + removedFirst + ' and removed last - ' + removedLast);
+
+var milkProducts = ['milk', 'kefir', 'yoghurt', 'cheese', 'creme fresh'];
+var removedBeg = milkProducts.shift();
+var removedLas = milkProducts.pop();
+console.log('Removed from beggining and end: ' + removedBeg + ', ' + removedLas);
+
+var flowers = ['rose', 'lilac', 'sunflower'];
+var remFirst = flowers.shift();
+var remLast = flowers.pop();
+console.log(remFirst + ' and ' + remLast);
+
+var cats = ['Minus', 'Lulu', 'Chanel'];
+var rem1 = cats.shift();
+var remLasts = cats.pop();
+console.log(rem1 + ' and ' + remLasts);
+*/
+///////////////////////////////////////////
+//AJAX
+    /*$('[name=temp]').keyup(function(){
     	var xyz = $(this).val();
 
     	$.ajax({
@@ -358,6 +428,273 @@ console.log("Show all phones: " + phones);
     			$('#translation').html(abcd);
     		}
     	});
-    }); */
+    }); 
+//////////////////////////////////////////////////////
+//Searching the max number in array
+//1
+    var numbers = [1, 12, 121, 2, 3, 34, 68, 73];
+    var max=0;
+
+    for(var i=0; i<numbers.length; i++){
+        if(numbers[i]>max){
+            max= numbers[i];
+        }
+    }
+     console.log("show me max number: " + max);
+     console.log(Math.max(...numbers)); //special method for finding max value in the array
+//2
+    var nums = [3,4,5,19,28,37,46,57];
+    var max = 0;
+    for(var i = 0; i<nums.length; i++){
+        if(nums[i]>max){
+            max = nums[i];
+        }
+    }
+    console.log('The max number is: ' + max);
+    console.log(Math.max(...nums));
+
+//3
+    var arr = [1,6,34,56,124];
+    var max = 0;
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]>max){
+            max = arr[i];
+        }
+    }
+    console.log("The max number of array " + max);
+    console.log(Math.max(...arr));
+
+//4
+    var array = [12, 25, 37, 65, 78];
+    var max = 0;
+    for(var i = 0; i<array.length; i++){
+        if(array[i]>max){
+            max = array[i];
+        }
+    }
+    console.log('This is the max number in array: ' + max);
+    console.log(Math.max(...array));
+
+//5
+    var numberss = [1,2,3,4,5,6,7,8,9,10];
+    var max = 0;
+    for(var i = 0; i <numberss.length; i++){
+        if(numberss[i]>max){
+            max = numberss[i];
+        }
+    }
+    console.log('This is the max number in array ' + max);
+    console.log(Math.max(...numberss));
+
+//6
+    var a = [25,12,73,5,7];
+    var max = 0;
+    for(var i = 0; i<a.length; i++){
+        if(a[i]>max){
+            max = a[i];
+        }
+    }
+    console.log('The biggest number is ' + max);
+    console.log(Math.max(...a));
+
+//7
+    var b = [17, 35, 47, 83, 95];
+    var max = 0;
+    for(var i = 0; i<b.length; i++){
+        if(b[i]>max){
+            max = b[i];
+        }
+    }
+    console.log('Biggest number: ' + max);
+    console.log(Math.max(...b));
+/////////////////////////////////////////////////
+//Finding min number in an array
+
+//1
+ var abc = [12,2,3,47,56,7,8];
+ var min = Infinity;
+ for(var i = 0; i<abc.length; i++){
+    if(abc[i]<min){
+        min = abc[i];
+    }
+ }
+ console.log('The min number in array is ' + min);
+ console.log(Math.min(...abc));
+
+ //2
+ var vzz = [3,5,7,11,14];
+ var min = Infinity;
+ for(var i = 0; i<vzz.length; i++){
+    if(vzz[i]<min){
+        min = vzz[i];
+    }
+ }
+ console.log('This is the min number: ' + min);
+
+ //3
+ var cde = [12,34,47,87,95];
+ var min = Infinity;
+ for(var i = 0; i < cde.length; i++){
+    if(cde[i]<min){
+        min = cde[i];
+    }
+ }
+ console.log('Hello for min number ' + min);
+
+ //4
+ var arrA = [1,2,3,4,5,6,7,8,9,10,11];
+ var min = Infinity;
+ for(var i = 0; i < arrA.length; i++){
+    if(arrA[i]< min){
+        min = arrA[i];
+    }
+ }
+ console.log('Min number ' + min);
+
+ //5
+ var la = [34,35,37,46,55];
+ var min = Infinity;
+ for(var i =0; i < la.length; i++){
+    if(la[i] < min){
+        min = la[i];
+    }
+ }
+ console.log('Mininum number in the array is ' + min);
+
+ //6
+
+ var cha = [2,3,6,7,8];
+ var min = Infinity;
+ for(var i = 0; i<cha.length; i++){
+    if(cha[i]<min){
+        min = cha[i];
+    }
+ }
+ console.log('Show min number: ' + min); 
+
+ //7
+var nmb = [21,14,37,65,78];
+function myMin (x) {
+         var min = Infinity;
+         for(var i = 0; i < x.length; i++){
+            if(x[i] < min) {
+                min = x[i];
+            }
+         }
+console.log('And the min number is ' + min);  
+ }
+myMin(nmb);
+
+
+//8
+var myNumbers = [12,14,16,17,18];
+
+showMin(myNumbers);
+function showMin (x) {
+    var min = Infinity;
+    for(var i = 0; i <x.length; i++){
+        if(x[i] < min) {
+            min = x[i];
+        }
+    }
+    console.log('Show me the minimum number in the array: ' + min);
+}
+
+//9
+var myNumbersArray = [1,2,3,4,5,6,7,8,9,10,11];
+findMin(myNumbersArray);
+function findMin (y){
+    var min = Infinity;
+    for(var i=0;i<y.length;i++){
+        if(y[i]<min){
+            min = y[i];
+        }
+    }
+    console.log('Show min: ' + min);
+}
+*/
+
+//10
+var myArrayNumbers = [11,12,13,14,15,16,17,18,19,20];
+$('#min').click(function (){
+  findTheMinValue(myArrayNumbers);  
+});
+
+function findTheMinValue (array) {
+    var min = Infinity;
+    for(var i=0; i<array.length; i++){
+        if(array[i]<min){
+            min = array[i];
+        }
+    }
+    console.log('The min number of array is ' + min);
+} 
+
+//11
+var arra = [24,25,27,28,29];
+$('#minNumber').on('click', function(){
+    showMinNumber(arra);
+    $('#minNumber').off('click');
+});
+function showMinNumber (x) {
+    var min = Infinity;
+    for(var i = 0; i < x.length; i++){
+        if(x[i]<min){
+            min = x[i];
+        }
+    }
+    $('h1').append(' This is min number: ' + min);
+}
+
+//12
+var sun = [12,14,17,25,37];
+$('#number').on('click', function(){ //only once first time when u click on button it displays result
+    showMin(sun);
+    $('#number').off('click');
+})
+function showMin (y){
+    var min = Infinity;
+    for(var i = 0; i < y.length; i++){
+        if(y[i]<min){
+            min = y[i];
+        }
+    }
+    $('h2').append(' The min number of this array is ' + min);
+}
+
+//13
+
+var aha = [100,24,25,52,34];
+
+$('#numberMin').on('click', function (){
+    findMin(aha);
+    $('#numberMin').off('click');
+})
+function findMin(z){
+    var min = Infinity;
+    for(var i = 0; i < z.length; i++){
+        if(z[i]<min){
+            min = z[i];
+        }
+    }
+    $('h3').append(' Append min number of the array' + min);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });

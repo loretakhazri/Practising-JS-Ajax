@@ -11,27 +11,12 @@ $limit = 3;
 $offset = 0;
 
 $query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3 ");
-=======
+
 $query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3");//Changed this line
->>>>>>> 807f9649b746dbff0142a9498b18a27f3dded671
+
 $query->execute(array());
 $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 
-$table_data = " ";
-
-
-foreach ($rows as $row){
-  $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
-=======
-$offset = 0; //new changes
-$limit = 3; //new changes
-
-foreach ($rows as $row){
-  $table_data .= "<tr><td>".$row['id']. "</td><td>".$row['username']. "</td><td>". $row['email']. "</td><td>" . $row['name'] . "</td></tr>";
-  $offset += $limit; //new changes
->>>>>>> 807f9649b746dbff0142a9498b18a27f3dded671
-}
-$offset += $limit;
 ?>
 
 <!DOCTYPE>
@@ -40,6 +25,10 @@ $offset += $limit;
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <button id="min" class='btn-warning'>Show min number</button>
+  <button id="minNumber" class = "btn btn-default btn-danger">Another min number</button>
+  <button id="number" class="btn btn-default btn-success">Min number</button>
+  <button id="numberMin" class="btn btn-default btn-primary">Min number another</button>
   <h1>Testing my skills</h1>
   <h2 id="h2">Aha</h2>
   <h3 id="h3">yes</h3>
@@ -200,27 +189,6 @@ $offset += $limit;
   <script type="text/javascript" src="app.js"></script>
 
 <script type="text/javascript">
-
-      $('#load').click(function(){
-      $('#table_data').append('<p id="loading">Loading more data... </p>');
-
-          $.ajax({
-            url: 'table.php',
-            type: 'get',
-
-            data:{offset:<?=$offset;?>},
-=======
-            data:{offset:<?=$offset;?>},//Changed this line
-
-            success: function(r){
-
-              $('#la').remove();
-              $('#loading').remove();
-              $('#table_data').append(r);
-              
-            }
-          });
-      });
 
 </script>
 </body>
