@@ -25,7 +25,7 @@ $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <button id="min" class='btn-warning'>Show min number</button>
+<button id="min" class='btn-warning'>Show min number</button>
   <button id="minNumber" class = "btn btn-default btn-danger">Another min number</button>
   <button id="number" class="btn btn-default btn-success">Min number</button>
   <button id="numberMin" class="btn btn-default btn-primary">Min number another</button>
@@ -178,8 +178,94 @@ $rows= $query->fetchAll(PDO::FETCH_ASSOC);
       </div>
 
   </div>
+  <div class="output"></div>
+  <div class="guest-list">
+      <h4>Guest list</h4>
+      <p class="admitted">Admit: </p>
+      <p class="refused">Refuse: </p>
+  </div>
+ 
 </div>
+<div class="outputted">
+  <input type="" name="">
+  <button>Search</button>
+  <ul></ul>
+</div> 
 
+
+
+<div id="creatingAlert">
+ 
+    <style>
+      .msgBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 242px;
+        background: #eee;
+      }
+      .msgBox p {
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333;
+        padding-left: 82px;
+        background-position: 25px center;
+        background-repeat: no-repeat;
+      }
+      .msgBox button {
+        background: none;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.1rem;
+        color: #aaa;
+      }
+    </style>
+     <button>Display message box</button>
+     <script type="text/javascript">
+
+        var button = document.querySelector('#creatingAlert button');
+        button.onclick = function () {
+          displayMessage('Woo, its another text!', 'chat');
+        } 
+        function displayMessage(msgText, msgType) {
+          var html = document.querySelector('html');
+
+          var panel = document.createElement('div');
+          panel.setAttribute('class', 'msgBox');
+          html.appendChild(panel);
+
+          var msg = document.createElement('p');
+          msg.textContent = msgText;
+          panel.appendChild(msg);
+
+          var closeBtn = document.createElement('button');
+          closeBtn.textContent = 'x';
+          panel.appendChild(closeBtn);
+
+          closeBtn.onclick = function (){
+            panel.parentNode.removeChild(panel);
+          }
+
+          if(msgType === "warning"){
+            msg.style.backgroundImage = 'url(warning.png)';
+            msg.style.backgroundColor = 'red';
+          } else if (msgType === "chat") {
+            msg.style.backgroundImage = 'url(chat.png)';
+            msg.style.backgroundColor = 'aqua';
+          } else {
+            msg.style.paddingLeft = '20px';
+          }
+        }
+
+        var button = document.querySelector('#creatingAlert button');
+        button.onclick = function (){
+          displayMessage("wow, its another message.", 'warning');
+        }
+     </script>
+</div>
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="

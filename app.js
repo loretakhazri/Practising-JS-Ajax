@@ -3,13 +3,7 @@ $( document ).ready(function() {
 
 /////////////////////////////////////////////
 //Practising if statements
- /* var hotMilk = "I like hot milk";
-        if(hotMilk === "I like hot milk"){
-            alert("yummy!");
-        }else {
-            alert("shitty stuff");
-        }
-
+ /* 
     var number = 10;
          if(number > 10){
             alert("its more than 10");
@@ -680,21 +674,163 @@ function findMin(z){
     $('h3').append(' Append min number of the array' + min);
 
 }
+////////////////////////////////////////////////////////
+//Example of using while loop to countdown
+var output = document.querySelector('.output');
+output.innerHTML = '';
+
+var i = 10;
+while(i>=0){
+    var para = document.createElement('p');
+    if(i===10){
+        para.textContent = "Countdown ten";
+    } else if(i===0){
+        para.textContent = "Blast off";
+    } else {
+        para.textContent = i;
+    }
+
+    i--;
+    output.appendChild(para);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Guest list (sort people array to admitted and refused groups usinf loop and conditional statement)
+
+var people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+    
+var admitted = document.querySelector('.admitted');
+var refused = document.querySelector('.refused');
+admitted.textContent = 'Admit: ';
+refused.textContent = 'Refuse: '
+
+// var i = 0;
+// do {
+//     if(people[i]==='Phil' || people[i]==='Lola'){
+//          refused.textContent += people[i] + ', ';
+//     }else {
+//         admitted.textContent += people[i] + ', ';
+//     }
+//     i++;
+// }while(i <people.length);
+// admitted.textContent = admitted.textContent.slice(0, admitted.textContent.length-2) + '.';//The admitted.textContent.length-2 means the last element before the last ,(comma).
+                                                                    // You slice from beginning of whole string till the element before last comma starts.
+// refused.textContent = refused.textContent.slice(0, refused.textContent.length-2) + '.';
+
+for(var i = 0; i< people.length; i++){
+
+    if(people[i]==='Phil' || people[i]==='Lola'){
+        refused.textContent += people[i] + ', ';
+    } else {
+        admitted.textContent += people[i] + ', ';
+    }
+}
+refused.textContent = refused.textContent.slice(0, refused.textContent.length-2) + '.';
+admitted.textContent = admitted.textContent.slice(0, admitted.textContent.length-2) + '.';
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Functions
+
+var x = 5;
+var z = 10;
+function a () {
+    var y = x + z; //local scope(only inside the function it is defined)  
+    return y;
+}
+a();
+function get(value){
+    return "Good number is this: " + value;
+}
+
+var localVar = get(a());
+console.log(localVar);
 
 
+////////////////////////////////////////////////
+function myBigFunction() {
+  var myValue = 1;
+      
+  subFunction1(myValue); // if you want when these subfunctions would run, you have to pass var myValue to them as an parameter(only then variable it will be defined)
+  subFunction2(myValue);
+  subFunction3(myValue);
+}
 
+function subFunction1(value) {
+  console.log(value);
+}
 
+function subFunction2(value) {
+  console.log(value);
+}
 
+function subFunction3(value) {
+  console.log(value);
+}
+myBigFunction();
+//////////////////////////////////////
+//Adding to array searchInput values, when more than 5 - deleting the last item
+var list = document.querySelector('.outputted ul');
+var searchInput = document.querySelector('.outputted input');
+var searchBtn = document.querySelector('.outputted button');
 
+list.innerHTML = '';
 
+var myHistory = [];
 
+searchBtn.onclick = function() {
 
+  // we will only allow a term to be entered if the search input isn't empty
+  if (searchInput.value !== '') {
+    myHistory.unshift(searchInput.value);
 
+    // empty the list so that we don't display duplicate entries
+    // the display is regenerated every time a search term is entered.
+    list.innerHTML = '';
 
+    // loop through the array, and display all the search terms in the list
+    for (var i = 0; i < myHistory.length; i++) {
+      itemText = myHistory[i];
+      var listItem = document.createElement('li');
+      listItem.textContent = itemText;
+      list.appendChild(listItem);
+    }
 
+    // If the array length is 5 or more, remove the oldest search term
+    if (myHistory.length >= 5) {
+     myHistory.pop();
 
+    }
 
+    // empty the search input and focus it, ready for the next term to be entered
+    searchInput.value = '';
+    searchInput.focus();
+  }
+}
+////////////////////////////////////////////////////
+//Using function which returns any whole number between 0 and number(function's parameter)
 
+function randomNumber(number){
+    return Math.floor(Math.random()*number);
+}
+//1
+var a = function (){
+    return randomNumber(10);
+}
+console.log('Random number between 0 and 10: ' + a());
+
+//2
+var b = randomNumber(14);
+console.log('Random number between 0 and 14: ' + b);
+
+//3
+var headingFour = document.querySelector('h4');
+var butn = document.createElement('button');
+butn.textContent = 'Show random number';
+headingFour.appendChild(butn);
+
+butn.onclick = function () {
+    butn.append(' Another random number between 0 and 20: ' + randomNumber(20));
+}
 
 
 });

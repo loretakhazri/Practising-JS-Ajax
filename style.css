@@ -57,3 +57,12 @@ table {
     top: 61px;
     right: 130px;
 }
+.output {
+	background-color: yellow;
+}
+.guest-list {
+	background-color: blue;
+}
+#creatingAlert {
+	background-color: red;
+}
