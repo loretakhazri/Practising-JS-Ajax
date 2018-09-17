@@ -831,6 +831,72 @@ headingFour.appendChild(butn);
 butn.onclick = function () {
     butn.append(' Another random number between 0 and 20: ' + randomNumber(20));
 }
+///////////////////////
+var inputt = document.querySelector('#this-input');
+var paragraph= document.querySelector('#input-value-change p');
+
+inputt.onkeyup = function (){
+    var number = inputt.value;
+
+    function squared (number) {
+        return number * number;
+    }
+
+
+    if(isNaN(number)){
+        paragraph.textContent = ' Hey, you must write a number!';
+    } else {
+        paragraph.textContent = ' This numbers squared is equal to ' + squared(number)+ '.';
+    }
+}
+//////////////////////////////////////////////////////////////////
+
+var inputt2 = document.querySelector('#this-input2');
+var paragraph2 = document.querySelector('#input-value-change2 p');
+
+function cubed (numberr) {
+    return numberr * numberr * numberr;
+}
+
+inputt2.onkeyup = function (){
+    var number2 = inputt2.value;
+    if(isNaN(number2)) {
+        paragraph2.textContent = 'Error. You must write a number here.';
+    } else {
+        paragraph2.textContent = number2 + ' . Its cubed is equal to ' + cubed(number2);
+    }
+}
+///////////////////////////////////////////////////////////////////
+var color = document.querySelector('#color');
+function rnd(number){
+    return Math.floor(Math.random()*(number+1));
+}
+ color.onclick = function(){
+    var rndColor = 'rgb('+rnd(255)+', '+rnd(255)+', '+rnd(255)+')';
+    document.body.style.backgroundColor = rndColor;
+ }
+
+////////////////////////////////////////////////////////////////////
+var voila = document.querySelector('.voila');
+voila.addEventListener('click', function (){
+    voila.style.backgroundColor = 'red';
+});
+voila.addEventListener('click', function (){
+    voila.append(cubed(3));
+});
+///////////////////////////////////////////
+var form = document.querySelector('form');
+var fname = document.getElementById('fname');
+var lname = document.getElementById('lname');
+var submit = document.getElementById('submit');
+var para = document.querySelector('#p');
+
+form.onsubmit = function(e){
+    if(fname.value==='' || lname.value===''){
+        e.preventDefault();
+        para.textContent = 'You must fill in both names!';
+    }
+}
 
 
 });

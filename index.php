@@ -7,16 +7,6 @@ $password = "";
 //-- Making query for getting first 3 rows from users table
 $pdo = new PDO ("mysql:host=$servername;dbname=test", $username, $password);
 
-$limit = 3;
-$offset = 0;
-
-$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3 ");
-
-$query = $pdo->prepare("SELECT * FROM users ORDER BY id ASC limit $offset, 3");//Changed this line
-
-$query->execute(array());
-$rows= $query->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE>
@@ -25,7 +15,131 @@ $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<button id="min" class='btn-warning'>Show min number</button>
+
+<div>
+  <button id="clickBtn">Watch</button>
+  <img class="img" src="fashion1.jpeg">
+</div>
+
+<script type="text/javascript">
+  
+  document.getElementById('clickBtn').addEventListener('click', function() {
+
+      document.querySelector('img').style.display = "block";
+      document.getElementById('clickBtn').addEventListener('dblclick', function(){
+        document.querySelector('img').style.display = "none";
+      });
+
+
+  });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="parent-list">
+  <li id="post-1" class="btn btn-default btn-warning">Item 1</li>
+  <li id="post-2" class="btn btn-default btn-warning">Item 2</li>
+  <li id="post-3" class="btn btn-default btn-warning">Item 3</li>
+  <li id="post-4" class="btn btn-default btn-warning">Item 4</li>
+  <li id="post-5" class="btn btn-default btn-warning">Item 5</li>
+  <li id="post-6" class="btn btn-default btn-warning">Item 6</li>
+</ul>
+
+
+<div id="myDiv">
+  <a class="a" href="#">Click me</a>
+</div>
+
+<script type="text/javascript">
+  document.getElementById("parent-list").addEventListener("mouseover", function(e) {
+  // e.target is the clicked element!
+  // If it was a list item
+    if(e.target && e.target.nodeName == "LI") {
+      // List item found!  Output the ID!
+      e.target.setAttribute('class', 'btn btn-default btn-danger');
+      document.getElementById("parent-list").addEventListener("mouseout", function(e){
+        if(e.target && e.target.nodeName == "LI") {
+        e.target.setAttribute('class', 'btn btn-default btn-warning');
+      }
+      });
+    }
+  });
+
+  document.getElementById('myDiv').addEventListener('mouseover', function(e){
+    if(e.target && e.target.matches('a.a')){
+      e.target.style.color = 'red';
+      document.getElementById('myDiv').addEventListener('mouseout', function(e){
+        if(e.target && e.target.matches('a.a')){
+          e.target.style.color = 'blue';
+        }
+      });
+    }
+  });
+</script>
+
+  <form>
+  <div>
+    <label for="fname">First name: </label>
+    <input id="fname" type="text">
+  </div>
+  <div>
+    <label for="lname">Last name: </label>
+    <input id="lname" type="text">
+  </div>
+  <div>
+     <input id="submit" type="submit">
+  </div>
+</form>
+<p id="p"></p>
+
+  <button class="voila btn-succes btn btn-default">Voila</button>
+
+  <button id='bg'>Change color</button>
+    <script>
+      var btn = document.querySelector('#bg');
+      function random(number) {
+        return Math.floor(Math.random()*number);
+      }
+      function bgChange() {
+        var rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        document.body.style.backgroundColor = rndCol;
+      }
+      //window.onkeypress = bgChange; 
+      btn.ondblclick = bgChange;
+    </script>
+
+
+  <div id="input-value-change" style="width:200px; background-color: green;">
+    <input id="this-input" type="" name="">
+    <p>Empty</p>
+  </div>
+  <div id="input-value-change2" style="width:200px; background-color: blue;">
+    <input id="this-input2" type="" name="">
+    <p>Empty</p>
+  </div>
+<button id="color">Change color</button>
+  <button id="min" class='btn-warning'>Show min number</button>
   <button id="minNumber" class = "btn btn-default btn-danger">Another min number</button>
   <button id="number" class="btn btn-default btn-success">Min number</button>
   <button id="numberMin" class="btn btn-default btn-primary">Min number another</button>
@@ -192,9 +306,35 @@ $rows= $query->fetchAll(PDO::FETCH_ASSOC);
   <ul></ul>
 </div> 
 
+ <input class="numberInput" type="text">
+ 
+  <p id="la">LALALALLALALALLALA</p>
 
+  <script>
+    var input = document.querySelector('.numberInput');
+    var para = document.querySelector('#la');
+    function squared(num) {
+      return num * num;
+    }
+    function cubed(num) {
+      return num * num * num;
+    }
 
-<div id="creatingAlert">
+    input.onchange = function() {
+
+      var num = input.value;
+
+      if(isNaN(num)) {
+        para.textContent = 'You need to enter a number!';
+
+      } else {
+        para.textContent = num + ' squared is ' + squared(num) + '. ' +
+                           num + ' cubed is ' + cubed(num) + '. ';
+      }
+    }
+  </script>
+
+<!--<div id="creatingAlert">
  
     <style>
       .msgBox {
@@ -265,7 +405,7 @@ $rows= $query->fetchAll(PDO::FETCH_ASSOC);
           displayMessage("wow, its another message.", 'warning');
         }
      </script>
-</div>
+</div> -->
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
